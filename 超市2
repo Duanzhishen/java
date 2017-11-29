@@ -109,10 +109,10 @@ public class chaoshi {
 			{
 				lin.remove(i);
 				System.out.println("商品已删除！");
-				break;
-			}
-			System.out.println("你输入的商品不存在！");
+				return;
+			}	
 		}
+		System.out.println("你输入的商品不存在！");
 	}
 	public static void xiugai(LinkedList<shangping> lin)
 	{
@@ -140,10 +140,10 @@ public class chaoshi {
 				a4.jg=j;
 				lin.set(i,a4);
 				System.out.println("商品已修改！");
-				break;
+				return;
 			}
-			System.out.println("你输入的商品不存在！");
-		}
+	}
+		System.out.println("你输入的商品不存在！");
 	}
 }
 
