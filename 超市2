@@ -1,0 +1,152 @@
+package shiyi27;
+
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class chaoshi {
+	public static void main(String[] args) {
+		LinkedList<shangping> lin=new LinkedList<shangping>();
+		ping(lin);
+		while(true)
+		{
+			ciadan();
+			int shu=jieshou(); 
+			switch (shu) {
+			case 1:
+				qingdan(lin);
+				break;
+			case 2:
+				tianjia(lin);
+				break;
+			case 3:
+				shanchu(lin);
+				break;
+			case 4:
+				xiugai(lin);
+				break;
+			default:
+				System.out.println("输入的序号没有！");
+				break;
+			}
+		}
+	}
+	
+	public static void ping(LinkedList<shangping> lin)
+	{
+		shangping a1=new shangping();
+		a1.ID=123;
+		a1.name="奥利奥饼干";
+		a1.jg=7.5;
+		shangping a2=new shangping();
+		a2.ID=124;
+		a2.name="奥利奥饼干";
+		a2.jg=7.5;
+		shangping a3=new shangping();
+		a3.ID=125;
+		a3.name="奥利奥饼干";
+		a3.jg=7.5;
+		lin.add(a1);
+		lin.add(a2);
+		lin.add(a3);
+	}
+	
+	public static void ciadan()
+	{
+		System.out.println();
+		System.out.println("--------欢迎光临奥利奥超市--------");
+		System.out.println("1：货物清单   2：添加货物   3：删除货物   4：修改货物");
+		System.out.println("请选择序号:");
+	}
+	
+	public static int jieshou()
+	{
+		Scanner sc=new Scanner(System.in);
+		return sc.nextInt();
+	}
+	
+	public static void qingdan(LinkedList<shangping> lin)
+	{
+		System.out.println();
+		System.out.println("----------货物清单-----------");
+		System.out.println("商品编号            商品名称              商品价格");
+		for(int i=0;i<lin.size();i++)
+		{
+			shangping sp=lin.get(i);
+			System.out.println(sp.ID+"       "+sp.name+"            "+sp.jg);
+		}
+	}
+	
+	public static void tianjia(LinkedList<shangping> lin)
+	{
+		shangping a4=new shangping();
+		System.out.println("你选择的是添加商品");
+		System.out.println("请输入编号:");
+		Scanner sc=new Scanner(System.in);
+		int id=sc.nextInt();
+		System.out.println("请输入名称:");
+		Scanner sc1=new Scanner(System.in);
+		String na=sc.next();
+		System.out.println("请输入价格:");
+		Scanner sc2=new Scanner(System.in);
+		double j=sc.nextDouble();
+		a4.ID=id;
+		a4.name=na;
+		a4.jg=j;
+		lin.add(a4);
+		System.out.println("添加完成！");
+	}
+	
+	public static void shanchu(LinkedList<shangping> lin)
+	{
+		System.out.println("你选择的是删除商品");
+		System.out.println("请输入删除的编号:");
+		Scanner sc=new Scanner(System.in);
+		int id=sc.nextInt();
+		for(int i=0;i<lin.size();i++)
+		{
+			shangping b=lin.get(i);
+			if(b.ID==id)
+			{
+				lin.remove(i);
+				System.out.println("商品已删除！");
+				break;
+			}
+			System.out.println("你输入的商品不存在！");
+		}
+	}
+	public static void xiugai(LinkedList<shangping> lin)
+	{
+		System.out.println("你选择的是修改商品");
+		System.out.println("请输入修改的编号:");
+		Scanner sc=new Scanner(System.in);
+		int id=sc.nextInt();
+		for(int i=0;i<lin.size();i++)
+		{
+			shangping b=lin.get(i);
+			if(b.ID==id)
+			{
+				shangping a4=new shangping();
+				System.out.println("请输入修改编号:");
+				Scanner sc1=new Scanner(System.in);
+				int id1=sc.nextInt();
+				System.out.println("请输入修改名称:");
+				Scanner sc2=new Scanner(System.in);
+				String na=sc.next();
+				System.out.println("请输入修改价格:");
+				Scanner sc3=new Scanner(System.in);
+				double j=sc.nextDouble();
+				a4.ID=id1;
+				a4.name=na;
+				a4.jg=j;
+				lin.set(i,a4);
+				System.out.println("商品已修改！");
+				break;
+			}
+			System.out.println("你输入的商品不存在！");
+		}
+	}
+}
+
+
+
+
