@@ -1,0 +1,16 @@
+package shiyi27;
+
+public class shangping {
+
+	int ID;
+	String name;	
+	double jg;	
+	int sl;	
+	double zj;
+/*	public String toString()
+	{
+		return name+ID;
+		
+	}*/
+}
+
